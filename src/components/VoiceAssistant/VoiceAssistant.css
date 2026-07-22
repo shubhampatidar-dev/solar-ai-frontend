@@ -1,0 +1,25 @@
+.assistant-container {
+
+    width: 420px;
+
+    margin: 40px auto;
+
+    padding: 30px;
+
+    border-radius: 24px;
+
+    background: white;
+
+    box-shadow: 0 15px 40px rgba(0,0,0,.12);
+
+    text-align: center;
+
+}
+
+.assistant-title{
+
+    margin-bottom:30px;
+
+    font-size:30px;
+
+}
