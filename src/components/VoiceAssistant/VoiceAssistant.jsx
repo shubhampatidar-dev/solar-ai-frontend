@@ -1,5 +1,6 @@
 import useConversation from "../../hooks/useConversation.js";
 import ChatWindow from "../ChatWindow/ChatWindow";
+import { useEffect } from "react";
 
 export default function VoiceAssistant() {
   const {
@@ -18,6 +19,12 @@ export default function VoiceAssistant() {
     return "😴 Waiting...";
   }
 
+  useEffect(() => {
+
+    startConversation();
+
+  }, []);
+
   return (
     <div
       style={{
@@ -30,7 +37,9 @@ export default function VoiceAssistant() {
 
       <h3>{getStatus()}</h3>
 
-      {!started && (
+
+
+      {/* {!started && (
         <button
           onClick={startConversation}
           style={{
@@ -41,7 +50,7 @@ export default function VoiceAssistant() {
         >
           🎤 Start Conversation
         </button>
-      )}
+      )} */}
 
       {/* <ChatWindow messages={messages} /> */}
     </div>
