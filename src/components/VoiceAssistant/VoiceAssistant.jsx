@@ -30,7 +30,7 @@ export default function VoiceAssistant() {
 
       <h3>{getStatus()}</h3>
 
-      {/* {!started && (
+      {!started && (
         <button
           onClick={startConversation}
           style={{
@@ -41,7 +41,7 @@ export default function VoiceAssistant() {
         >
           🎤 Start Conversation
         </button>
-      )} */}
+      )}
 
       {/* <ChatWindow messages={messages} /> */}
     </div>
