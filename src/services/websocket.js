@@ -1,4 +1,4 @@
-import ConversationManager from "../conversation/conversationManager";
+import conversationManager from "../conversation/conversationManager";
 import { playPCM, stopAudio } from "../audio/audioPlayer";
 
 let socket = null;
@@ -20,7 +20,7 @@ export async function connectWebSocket() {
     socket.onopen = () => {
       console.log("✅ WebSocket Connected");
 
-      ConversationManager.setConnected(true);
+      conversationManager.setConnected(true);
 
       resolve(socket);
     };
@@ -34,7 +34,7 @@ export async function connectWebSocket() {
     socket.onclose = () => {
       console.log("❌ WebSocket Closed");
 
-      ConversationManager.setConnected(false);
+      conversationManager.setConnected(false);
 
       socket = null;
     };
@@ -48,7 +48,7 @@ export async function connectWebSocket() {
 
           console.log("🤖", message.text);
 
-          ConversationManager.addAIMessage(
+          conversationManager.addAIMessage(
             message.text
           );
 
@@ -56,7 +56,7 @@ export async function connectWebSocket() {
 
         case "AUDIO":
 
-          ConversationManager.onAISpeaking();
+          conversationManager.onAISpeaking();
 
           playPCM(message.data);
 
@@ -64,7 +64,7 @@ export async function connectWebSocket() {
 
         case "TURN_COMPLETE":
 
-          ConversationManager.onAIFinished();
+          conversationManager.onAIFinished();
 
           break;
 
@@ -72,7 +72,7 @@ export async function connectWebSocket() {
 
           stopAudio();
 
-          ConversationManager.onInterrupted();
+          conversationManager.onInterrupted();
 
           break;
 

@@ -113,4 +113,4 @@ class conversationManager {
   }
 }
 
-export default new ConversationManager();
+export default new conversationManager();
